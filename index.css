@@ -595,8 +595,9 @@ border-radius: 25px;
 }
 
 .input-field {
-  width: 300px;
-  padding: 12px 20px;
+  width: 150%;
+  max-width: 100%;
+  padding: 16px 24px;
   font-size: 1rem;
   background: rgba(255, 255, 255, 0.1);
   border: 2px solid var(--color-border);
@@ -757,4 +758,5 @@ border-radius: 25px;
   opacity: 0;
   border-right: none; /* remove caret */
   width: auto;
+
 }
