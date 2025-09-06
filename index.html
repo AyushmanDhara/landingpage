@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindSpace - Your Mental Wellness Companion</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="floating-orb orb1"></div>
+        <div class="floating-orb orb2"></div>
+        <div class="floating-orb orb3"></div>
+    </div>
+
+    <!-- Particles -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">MindSpace</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                 <li class="active"><a href="#bot">Chat Now</a></li>
+                <li class="active"><a href="#appointments">Appointments</a></li>
+                <li class="active"><a href="#datacall">Login/Signup</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="brain-section">
+        <div class="brain-center-container">
+            <div class="hero-text">
+                <!-- Hero Text with Typewriter Animation -->
+                <div class="typewriter" id="mainText">
+                    <h1>Your Mental Wellness Journey Starts Here</h1>
+                    
+                    <div id="chatBar">
+                        <input 
+                            type="text" 
+                            placeholder="You talk, we listen - without judgment.   "                    " 
+                            class="input-field"
+                        />
+                    </div>
+                </div>
+                
+                <p>Breaking barriers in college mental health support. Access confidential, professional help anytime, anywhere. No stigma, just support.</p>
+                <div class="cta-buttons">
+                    <a href="#" class="btn btn-primary">Start Free Assessment</a>
+                </div>
+            
+                <div class="brain-container">
+                    <div class="brain-3d">
+                        <div class="brain-element brain-core"></div>
+                        <div class="brain-element neural-network">
+                            <div class="neural-node node1"></div>
+                            <div class="neural-node node2"></div>
+                            <div class="neural-node node3"></div>
+                            <div class="neural-node node4"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    </section>
+<main>
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="features-container">
+            <h2 class="section-title gradient-text">Why Choose MindSpace?</h2>
+            <p class="section-subtitle">Comprehensive mental health support designed for modern students</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🧠</div>
+                    <h3>AI-Powered Support</h3>
+                    <p>24/7 intelligent mental health companion that understands your unique challenges and provides personalized coping strategies.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Complete Privacy</h3>
+                    <p>Your mental health journey is confidential. End-to-end encryption ensures your conversations stay private and secure.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">👥</div>
+                    <h3>Peer Community</h3>
+                    <p>Connect with fellow students who understand. Anonymous support groups and moderated forums create safe spaces.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Progress Tracking</h3>
+                    <p>Visualize your mental wellness journey with intuitive dashboards and mood tracking tools.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Personalized Plans</h3>
+                    <p>Customized wellness programs adapted to your schedule, stress triggers, and academic demands.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Instant Access</h3>
+                    <p>No waiting rooms, no appointments. Get support exactly when you need it most, even at 3 AM.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+<!-- about and contact section -->
+  <section class="about" id="about">
+    <div class="about-container">
+        <h2 class="section-title">About MindSpace</h2>
+        <p class="section-subtitle">Revolutionizing mental health support through AI and human connection</p>
+        
+        <div class="about-stats-grid">
+            <div class="stat-card">
+                <div class="stat-circle" style="--progress: 85%">
+                    <span class="stat-number">85%</span>
+                </div>
+                <div class="stat-label">User Satisfaction</div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-circle" style="--progress: 92%">
+                    <span class="stat-number">92%</span>
+                </div>
+                <div class="stat-label">Issue Resolution</div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-circle" style="--progress: 78%">
+                    <span class="stat-number">78%</span>
+                </div>
+                <div class="stat-label">Stress Reduction</div>
+            </div>
+        </div>
+
+        <div class="about-info-grid">
+            <div class="info-card">
+                <h3>Our Mission</h3>
+                <p>MindSpace was created to help students navigate stress, anxiety, and academic pressures through AI-driven support and professional guidance.</p>
+            </div>
+            
+            <div class="info-card">
+                <h3>Our Approach</h3>
+                <p>We combine cutting-edge AI technology with human expertise to provide personalized, accessible mental health support for every student.</p>
+            </div>
+        </div>
+    </div>
+</section>
+    <!-- contact -->
+     <section class="contact" id="contact">
+    <div class="contact-container">
+        <h2 class="section-title">Contact Us</h2>
+        <p class="section-subtitle">Questions, feedback or need support? Reach out — we're here to help.</p>
+
+        <div class="contact-grid" >
+            <form class="contact-form" action="#" method="post" autocomplete="off" aria-label="Contact form" >
+                <div class="form-row">
+                    <label for="contact-name" class="sr-only">Name</label>
+                    <input id="contact-name" name="name" type="text" placeholder="Your name" required class="input-field" />
+                </div>
+
+                <div class="form-row">
+                    <label for="contact-email" class="sr-only">Email</label>
+                    <input id="contact-email" name="email" type="email" placeholder="Your email" required class="input-field" />
+                </div>
+
+                <div class="form-row">
+                    <label for="contact-subject" class="sr-only">Subject</label>
+                    <input id="contact-subject" name="subject" type="text" placeholder="Subject" class="input-field" />
+                </div>
+
+                <div class="form-row">
+                    <label for="contact-message" class="sr-only">Message</label>
+                    <textarea id="contact-message" name="message" rows="5" placeholder="How can we help?" required class="input-field"></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </div>
+            </form>
+
+            <div class="contact-info">
+                <h3>Get in touch</h3>
+                <p>Email: <a href="mailto:support@mindspace.example">support@mindspace.example</a></p>
+                <p>Phone: <a href="tel:+1234567890">+1 (234) 567-890</a></p>
+                <p>Hours: Mon–Fri 09:00–18:00 (24/7 AI support available)</p>
+
+                <div class="contact-social">
+                    <a href="#" aria-label="Twitter">Twitter</a> ·
+                    <a href="#" aria-label="Instagram">Instagram</a> ·
+                    <a href="#" aria-label="LinkedIn">LinkedIn</a>
+                </div>
+
+                <div class="map-placeholder" aria-hidden="true">
+                    <!-- Optional: embed a map or office location if relevant -->
+                    <svg width="280" height="160" viewBox="0 0 280 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="280" height="160" rx="12" fill="#F8FAFC"></rect>
+                        <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#64748B" font-size="14">Map / Office Location</text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</main>
+<!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-grid" >
+            <div class="stat-item">
+                <div class="stat-number">73%</div>
+                <div class="stat-label">Students Report Mental Health Issues</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Always Available Support</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">50K+</div>
+                <div class="stat-label">Students Already Helped</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">4.9★</div>
+                <div class="stat-label">User Satisfaction Rating</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content" >
+            <h2 class="gradient-text">Take the First Step Today</h2>
+            <p>Your mental health matters. Join thousands of students who've found support, healing, and hope with MindSpace.</p>
+            <a href="#" class="btn btn-primary">Get Started Free</a>
+        </div>
+    </section>
+     <script src="index.js"></script>
+</body>
+</html>
