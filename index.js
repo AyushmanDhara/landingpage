@@ -115,30 +115,114 @@
         });
 
 
+// // Hero Text to Chat Bar Animation
+// const mainText = document.getElementById("mainText");
+// const chatBar = document.getElementById("chatBar");
+// const heading = mainText.querySelector("h1");
+
+// // Animation functions
+
+// function resetAnimation() {
+//   // Reset all classes to initial state
+//   mainText.classList.remove("fade-in-up", "fade-out-up", "hidden");
+//   chatBar.classList.remove("fade-in-up", "fade-out-up", "hidden");
+  
+//   // Reset heading animation
+//   heading.style.animation = 'none';
+//   void heading.offsetWidth; // force reflow
+// }
+
+// function showText() {
+//   resetAnimation();
+  
+//   // Show text with typing animation
+//   mainText.classList.add("fade-in-up");
+  
+//   // Restart typing animation
+//   heading.style.animation = `
+//     fadeIn 0.5s ease forwards,
+//     typing 3.5s steps(40, end) 0.5s forwards,
+//     blink-caret 0.75s step-end infinite 4s
+//   `;
+// }
+
+// function hideText() {
+//   mainText.classList.remove("fade-in-up");
+//   mainText.classList.add("fade-out-up");
+  
+//   // Hide text after fade animation
+//   setTimeout(() => {
+//     mainText.classList.add("hidden");
+//     mainText.classList.remove("fade-out-up");
+//   }, 400);
+// }
+
+// function showChat() {
+//   chatBar.classList.remove("hidden", "fade-out-up");
+//   chatBar.classList.add("fade-in-up");
+  
+//   // Focus on input field for better UX
+//   setTimeout(() => {
+//     const inputField = chatBar.querySelector('.input-field');
+//     if (inputField) {
+//       inputField.focus();
+//     }
+//   }, 500);
+// }
+
+// function hideChat() {
+//   chatBar.classList.remove("fade-in-up");
+//   chatBar.classList.add("fade-out-up");
+  
+//   // Hide chat bar after fade animation
+//   setTimeout(() => {
+//     chatBar.classList.add("hidden");
+//     chatBar.classList.remove("fade-out-up");
+//   }, 400);
+// }
+
+// function loopAnimation() {
+//   // Step 1: Show hero text with typing animation
+//   showText();
+
+//   // Step 2: Hide text after typing completes (4.5s total)
+//   setTimeout(() => {
+//     hideText();
+//   }, 4500);
+
+//   // Step 3: Show chat bar after text disappears (5s total)
+//   setTimeout(() => {
+//     showChat();
+//   }, 5000);
+
+//   // Step 4: Hide chat bar after 8 seconds
+//   setTimeout(() => {
+//     hideChat();
+//   }, 13000);
+// }
+
+// // Start animation immediately and then loop every 30 seconds
+// loopAnimation();
+// setInterval(loopAnimation, 15000);
+
+// fix animation gleitch 
 // Hero Text to Chat Bar Animation
 const mainText = document.getElementById("mainText");
 const chatBar = document.getElementById("chatBar");
 const heading = mainText.querySelector("h1");
 
-// Animation functions
-
 function resetAnimation() {
-  // Reset all classes to initial state
   mainText.classList.remove("fade-in-up", "fade-out-up", "hidden");
   chatBar.classList.remove("fade-in-up", "fade-out-up", "hidden");
-  
-  // Reset heading animation
-  heading.style.animation = 'none';
-  void heading.offsetWidth; // force reflow
+
+  heading.style.animation = "none";
+  void heading.offsetWidth; // reflow
 }
 
 function showText() {
   resetAnimation();
-  
-  // Show text with typing animation
   mainText.classList.add("fade-in-up");
-  
-  // Restart typing animation
+
   heading.style.animation = `
     fadeIn 0.5s ease forwards,
     typing 3.5s steps(40, end) 0.5s forwards,
@@ -149,8 +233,7 @@ function showText() {
 function hideText() {
   mainText.classList.remove("fade-in-up");
   mainText.classList.add("fade-out-up");
-  
-  // Hide text after fade animation
+
   setTimeout(() => {
     mainText.classList.add("hidden");
     mainText.classList.remove("fade-out-up");
@@ -160,12 +243,15 @@ function hideText() {
 function showChat() {
   chatBar.classList.remove("hidden", "fade-out-up");
   chatBar.classList.add("fade-in-up");
-  
-  // Focus on input field for better UX
+
   setTimeout(() => {
-    const inputField = chatBar.querySelector('.input-field');
+    const inputField = chatBar.querySelector(".input-field");
     if (inputField) {
-      inputField.focus();
+      try {
+        inputField.focus({ preventScroll: true });
+      } catch {
+        inputField.focus();
+      }
     }
   }, 500);
 }
@@ -173,8 +259,7 @@ function showChat() {
 function hideChat() {
   chatBar.classList.remove("fade-in-up");
   chatBar.classList.add("fade-out-up");
-  
-  // Hide chat bar after fade animation
+
   setTimeout(() => {
     chatBar.classList.add("hidden");
     chatBar.classList.remove("fade-out-up");
@@ -182,88 +267,12 @@ function hideChat() {
 }
 
 function loopAnimation() {
-  // Step 1: Show hero text with typing animation
   showText();
 
-  // Step 2: Hide text after typing completes (4.5s total)
-  setTimeout(() => {
-    hideText();
-  }, 4500);
-
-  // Step 3: Show chat bar after text disappears (5s total)
-  setTimeout(() => {
-    showChat();
-  }, 5000);
-
-  // Step 4: Hide chat bar after 8 seconds
-  setTimeout(() => {
-    hideChat();
-  }, 13000);
+  setTimeout(hideText, 4500);   // hide text
+  setTimeout(showChat, 5000);   // show chat bar
+  setTimeout(hideChat, 13000);  // hide chat bar
 }
 
-// Start animation immediately and then loop every 30 seconds
 loopAnimation();
 setInterval(loopAnimation, 15000);
-
-// fix animation gleitch 
-document.addEventListener('DOMContentLoaded', () => {
-  const chatBar = document.getElementById('chatBar');
-  const input = chatBar?.querySelector('input, .input-field') ?? null;
-  let savedScrollY = 0;
-
-  // Make sure HTML has no autofocus attribute on the input
-  if (input) input.removeAttribute('autofocus');
-
-  function revealChatBar() {
-    if (!chatBar) return;
-    chatBar.classList.add('visible');
-
-    // focus without scrolling (modern browsers)
-    if (input) {
-      try {
-        input.focus({ preventScroll: true });
-      } catch (err) {
-        // fallback: save/restore scroll
-        savedScrollY = window.scrollY || window.pageYOffset;
-        input.focus();
-        window.scrollTo(0, savedScrollY);
-      }
-    }
-  }
-
-  // Body lock helpers (fixes mobile viewport jumping when keyboard appears)
-  function lockBody() {
-    savedScrollY = window.scrollY || window.pageYOffset;
-    document.body.classList.add('no-scroll');
-    document.body.style.top = `-${savedScrollY}px`;
-  }
-  function unlockBody() {
-    document.body.classList.remove('no-scroll');
-    const top = parseInt(document.body.style.top || '0') || 0;
-    document.body.style.top = '';
-    window.scrollTo(0, Math.abs(top));
-  }
-
-  // When chat shown, reveal and focus
-  // (call revealChatBar() after your heading animation ends or on user action)
-  const title = document.querySelector('.typewriter h1');
-  if (title) {
-    title.addEventListener('animationend', revealChatBar, { once: true });
-  } else {
-    // fallback small delay
-    setTimeout(revealChatBar, 700);
-  }
-
-  // Lock body when input is focused, unlock on blur
-  if (input) {
-    input.addEventListener('focus', () => {
-      try { lockBody(); } catch (e) {}
-    });
-    input.addEventListener('blur', () => {
-      try { unlockBody(); } catch (e) {}
-    });
-  }
-
-  // Extra safeguard: do NOT re-add animation classes to the H1 after reveal
-  // (if other code toggles classes, avoid toggling the h1 animation class)
-});
